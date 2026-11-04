@@ -4,3 +4,5 @@ node_modules/
 screenshot.png
 *-backup/
 ezgif-51777e019c6fdfc6-jpg-backup/
+push_all_frames.ps1
+test_dom.js

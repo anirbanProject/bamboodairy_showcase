@@ -1,0 +1,21 @@
+{
+  "name": "artisan-bamboo-showcase",
+  "version": "1.0.0",
+  "description": "Premium Bamboo Stationery Product Showcase Website with Cinematic 360° Rotation and Glassmorphism",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_dom.js"
+  },
+  "keywords": [
+    "bamboo",
+    "stationery",
+    "luxury",
+    "360-viewer",
+    "canvas-video",
+    "glassmorphism",
+    "sustainable"
+  ],
+  "author": "Anirban Mandal",
+  "license": "ISC"
+}

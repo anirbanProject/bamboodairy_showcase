@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+*.log
+screenshot.png
+*-backup/
+ezgif-51777e019c6fdfc6-jpg-backup/

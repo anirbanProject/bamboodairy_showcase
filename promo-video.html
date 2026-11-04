@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anirban Mandal | Professional Portfolio Promotional Video Creator (9:16)</title>
+  <meta name="description" content="Generate a 1080x1920 promotional video showcasing this luxury website for client acquisition across Instagram Reels, YouTube Shorts, LinkedIn, and Facebook by Anirban Mandal.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #060e08;
+      --bg-card: rgba(16, 36, 22, 0.7);
+      --bamboo-lime: #b8f04c;
+      --bamboo-lime-hover: #c9fa5c;
+      --text-white: #f5f8f5;
+      --text-muted: #8ba290;
+      --border-glass: rgba(255, 255, 255, 0.1);
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header.studio-header {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .studio-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--bamboo-lime);
+      text-transform: uppercase;
+      background: rgba(184, 240, 76, 0.12);
+      border: 1px solid rgba(184, 240, 76, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1.studio-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+
+    p.studio-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Main Workspace Layout */
+    .studio-workspace {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2.5rem;
+      max-width: 1300px;
+      width: 100%;
+    }
+
+    /* Video Player & Canvas Container (9:16 Aspect Ratio) */
+    .video-display-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .video-viewport-frame {
+      width: 360px;
+      height: 640px; /* 9:16 scaled preview */
+      border-radius: 28px;
+      overflow: hidden;
+      border: 2px solid rgba(184, 240, 76, 0.35);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(184, 240, 76, 0.15);
+      background: #000;
+      position: relative;
+    }
+
+    /* The High-Resolution 1080x1920 Canvas */
+    #promoCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Timeline & Playback Bar */
+    .video-timeline-controls {
+      width: 360px;
+      margin-top: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .timeline-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .time-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--bamboo-lime);
+      min-width: 45px;
+    }
+
+    .timeline-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.15);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .timeline-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bamboo-lime);
+      box-shadow: 0 0 10px var(--bamboo-lime);
+      cursor: pointer;
+    }
+
+    .playback-buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-glass);
+      color: var(--text-white);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: var(--bamboo-lime);
+      color: #07120a;
+      border-color: var(--bamboo-lime);
+    }
+
+    .scene-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    /* Controls & Customization Panel */
+    .studio-panel {
+      flex: 1;
+      max-width: 480px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .panel-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-section-title svg {
+      color: var(--bamboo-lime);
+    }
+
+    .panel-section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .export-card {
+      background: rgba(184, 240, 76, 0.08);
+      border: 1px solid rgba(184, 240, 76, 0.25);
+      border-radius: 16px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .export-specs {
+      display: flex;
+      justify-content: space-around;
+      margin: 1rem 0;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--bamboo-lime);
+    }
+
+    .btn-record-main {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: var(--bamboo-lime);
+      color: #07120a;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      box-shadow: 0 4px 20px rgba(184, 240, 76, 0.4);
+      transition: all 0.25s;
+    }
+
+    .btn-record-main:hover {
+      background: var(--bamboo-lime-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(184, 240, 76, 0.6);
+    }
+
+    .btn-record-main.recording {
+      background: #ef4444;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.5);
+      animation: pulse-rec 1.5s infinite;
+    }
+
+    @keyframes pulse-rec {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .record-status-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* Customizer Form */
+    .customizer-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .customizer-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .customizer-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+
+    .customizer-input:focus {
+      outline: none;
+      border-color: var(--bamboo-lime);
+    }
+
+    .scene-preview-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .scene-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    .scene-item:hover, .scene-item.active {
+      border-color: var(--bamboo-lime);
+      background: rgba(184, 240, 76, 0.08);
+      color: var(--bamboo-lime);
+    }
+
+    .scene-time {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 900px) {
+      .studio-workspace {
+        flex-direction: column;
+        align-items: center;
+      }
+      .studio-panel {
+        max-width: 360px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="studio-header">
+    <span class="studio-badge">PORTFOLIO VIDEO STUDIO</span>
+    <h1 class="studio-title">Promotional Showcase Video Studio</h1>
+    <p class="studio-subtitle">
+      Generate an ultra-high-definition 1080 &times; 1920 (9:16 vertical) promotional video designed for Instagram Reels, YouTube Shorts, LinkedIn, and Facebook to attract high-ticket web development clients.
+    </p>
+  </header>
+
+  <main class="studio-workspace">
+    
+    <!-- Left Column: Video Viewport (1080x1920 render, 360x640 preview) -->
+    <div class="video-display-column">
+      <div class="video-viewport-frame">
+        <canvas id="promoCanvas" width="1080" height="1920"></canvas>
+      </div>
+
+      <!-- Timeline & Scrubber Bar -->
+      <div class="video-timeline-controls">
+        <div class="timeline-progress-row">
+          <span class="time-label" id="currentTimeLabel">00:00</span>
+          <input type="range" min="0" max="38" step="0.1" value="0" class="timeline-slider" id="timelineSlider">
+          <span class="time-label" id="totalDurationLabel">00:38</span>
+        </div>
+
+        <div class="playback-buttons-row">
+          <button type="button" class="btn-icon" id="restartBtn" title="Restart Video">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+          </button>
+
+          <button type="button" class="btn-icon" id="playPauseBtn" title="Play / Pause">
+            <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="display:none;">
+              <rect x="6" y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+          </button>
+
+          <span class="scene-pill" id="currentSceneBadge">Scene 1: The Hook</span>
+
+          <button type="button" class="btn-icon" id="audioToggleBtn" title="Toggle Promotional Background Music">
+            <svg id="audioOnIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+            <svg id="audioOffIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="display:none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <line x1="23" y1="9" x2="17" y2="15"/>
+              <line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Export Studio & Branding Customization -->
+    <div class="studio-panel">
+      
+      <!-- Export Box -->
+      <div class="export-card">
+        <h3 class="panel-section-title" style="justify-content: center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+          Export 9:16 Promotional Video
+        </h3>
+        <p class="panel-section-desc">
+          Records the 38-second live choreographed sequence in 1080 &times; 1920 Full HD with synchronized audio.
+        </p>
+        <div class="export-specs">
+          <span>📐 1080 &times; 1920</span>
+          <span>⏱ 38 Seconds</span>
+          <span>⚡ 60 FPS</span>
+        </div>
+        <button type="button" class="btn-record-main" id="recordExportBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <circle cx="12" cy="12" r="8"/>
+          </svg>
+          <span id="recordBtnText">Record & Download Video</span>
+        </button>
+        <p class="record-status-text" id="recordStatus">Ready to export. Output format: WebM / MP4 (High Bitrate)</p>
+      </div>
+
+      <!-- Agency / Developer Customization -->
+      <div class="customizer-group">
+        <label class="customizer-label" for="customDeveloperName">Your Name / Brand Identity:</label>
+        <input type="text" id="customDeveloperName" value="Anirban Mandal" class="customizer-input" placeholder="Anirban Mandal">
+      </div>
+
+      <div class="customizer-group">
+        <label class="customizer-label" for="customCallToAction">Contact Handle / Call to Action:</label>
+        <input type="text" id="customCallToAction" value="Contact Anirban Mandal for Website Projects" class="customizer-input" placeholder="e.g. DM or email contact@anirbanmandal.com">
+      </div>
+
+      <!-- Choreographed Scenes Overview -->
+      <div>
+        <h4 class="panel-section-title" style="font-size: 1rem; margin-bottom: 0.75rem;">
+          Choreographed Storyboard
+        </h4>
+        <ul class="scene-preview-list">
+          <li class="scene-item active" data-time="0">
+            <span>01</span>
+            <strong>The Hook</strong>
+            <span class="scene-time">0s - 7s</span>
+          </li>
+          <li class="scene-item" data-time="7.5">
+            <span>02</span>
+            <strong>Cinematic 3D Video Hero</strong>
+            <span class="scene-time">7s - 15s</span>
+          </li>
+          <li class="scene-item" data-time="15">
+            <span>03</span>
+            <strong>Interactive Features</strong>
+            <span class="scene-time">15s - 23s</span>
+          </li>
+          <li class="scene-item" data-time="23">
+            <span>04</span>
+            <strong>100% Mobile Responsive</strong>
+            <span class="scene-time">23s - 31s</span>
+          </li>
+          <li class="scene-item" data-time="31">
+            <span>05</span>
+            <strong>Call to Action (Outro)</strong>
+            <span class="scene-time">31s - 38s</span>
+          </li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="scene-item" style="text-decoration: none; justify-content: center; color: var(--bamboo-lime); font-weight: 700; margin-top: auto;">
+        ← Back to Live Website
+      </a>
+
+    </div>
+
+  </main>
+
+  <script src="promo-video.js"></script>
+</body>
+</html>
